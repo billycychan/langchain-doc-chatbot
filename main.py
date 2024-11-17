@@ -5,13 +5,12 @@ from streamlit_chat import message
 
 # Configure the Streamlit page
 st.set_page_config(
-    page_title="AI Langchain Documentation Helper",
-    page_icon="💻",
-    layout="centered"
+    page_title="AI Langchain Documentation Helper", page_icon="💻", layout="centered"
 )
 
 # Custom CSS for dark mode
-st.markdown("""
+st.markdown(
+    """
 <style>
     .stApp {
         background-color: #121212;
@@ -63,14 +62,19 @@ st.markdown("""
         color: #FFFFFF;
     }
 </style>
-""", unsafe_allow_html=True)
+""",
+    unsafe_allow_html=True,
+)
 
 # Add sidebar with user information
 with st.sidebar:
     st.title("👤 User Profile")
-    
+
     # Display Billy Chan's information
-    st.image("https://media.licdn.com/dms/image/v2/D5603AQFXyZxjrK1Usw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1725337766268?e=1737590400&v=beta&t=77hxviuvRAiTCrryVSieaWl9PsPwgISZjILLhaDu_Hw", width=100)
+    st.image(
+        "https://media.licdn.com/dms/image/v2/D5603AQFXyZxjrK1Usw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1725337766268?e=1737590400&v=beta&t=77hxviuvRAiTCrryVSieaWl9PsPwgISZjILLhaDu_Hw",
+        width=100,
+    )
     st.write("👋 Welcome, Billy Chan!")
     st.write("📧 chanc187@mcmaster.ca")
     st.write("[LinkedIn](https://www.linkedin.com/in/billycychan/)")
@@ -81,7 +85,9 @@ with st.sidebar:
 # Main content
 st.header("AI Langchain Documentation Helper")
 st.subheader("A work of smart.")
-st.write("A chatbot for the [Langchain documentation  (v0.3)](https://python.langchain.com/api_reference/)")
+st.write(
+    "A chatbot for the [Langchain documentation  (v0.3)](https://python.langchain.com/api_reference/)"
+)
 
 # User input
 prompt = st.text_input("Prompt", placeholder="Enter your prompt here...")

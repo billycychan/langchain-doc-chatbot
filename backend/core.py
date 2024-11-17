@@ -1,5 +1,5 @@
 from typing import List, Dict, Any
-
+import os
 from dotenv import load_dotenv
 from langchain.chains.history_aware_retriever import create_history_aware_retriever
 from langchain.chains.retrieval import create_retrieval_chain
@@ -9,17 +9,18 @@ from langchain_ollama.chat_models import ChatOllama
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_pinecone import PineconeVectorStore
 
-load_dotenv()
+load_dotenv(".env.docker") if os.getenv("APP_ENV") == "docker" else load_dotenv()
 
 INDEX_NAME = "langchain-doc-index"
 MODEL_NAME = "llama3.2:1b"
+
 
 def run_llm(query: str, chat_history: List[Dict[str, Any]] = []):
     embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
     docsearch = PineconeVectorStore(index_name=INDEX_NAME, embedding=embeddings)
 
     # llm = ChatOpenAI(model=MODEL_NAME)
-    llm = ChatOllama(model=MODEL_NAME)
+    llm = ChatOllama(model=MODEL_NAME, base_url=os.environ["OLLAMA_BASE_URL"])
 
     retrieval_qa_chat_prompt = hub.pull("langchain-ai/retrieval-qa-chat")
     stuff_documents_chain = create_stuff_documents_chain(llm, retrieval_qa_chat_prompt)
