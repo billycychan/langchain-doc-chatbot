@@ -6,7 +6,10 @@ An intelligent Streamlit-based assistant that helps developers navigate and unde
 ![Python](https://img.shields.io/badge/python-3.12-blue.svg)
 ![Streamlit](https://img.shields.io/badge/streamlit-latest-red.svg)
 
-[Live Demo](https://langchain-docs-chatbot.billycychan.com/) | [Watch Demo Video](./demo.webm)
+[Live Demo](https://langchain-docs-chatbot.billycychan.com/)
+
+[Langchain Doc Chatbot Demo.webm](https://github.com/user-attachments/assets/c5825a6b-bcdd-4243-bc9a-84cd1803ea35)
+
 
 ## 🌟 Features
 
