@@ -12,14 +12,14 @@ from langchain_pinecone import PineconeVectorStore
 load_dotenv()
 
 INDEX_NAME = "langchain-doc-index"
-
+MODEL_NAME = "llama3.2:1b"
 
 def run_llm(query: str, chat_history: List[Dict[str, Any]] = []):
     embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
     docsearch = PineconeVectorStore(index_name=INDEX_NAME, embedding=embeddings)
 
-    llm = ChatOpenAI(model="gpt-4o-mini")
-    # llm = ChatOllama(model="llama3.2:1b")
+    # llm = ChatOpenAI(model=MODEL_NAME)
+    llm = ChatOllama(model=MODEL_NAME)
 
     retrieval_qa_chat_prompt = hub.pull("langchain-ai/retrieval-qa-chat")
     stuff_documents_chain = create_stuff_documents_chain(llm, retrieval_qa_chat_prompt)
