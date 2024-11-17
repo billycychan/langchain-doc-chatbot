@@ -1,82 +1,104 @@
 # AI Langchain Documentation Helper
 
-Welcome to the AI Langchain Documentation Helper! This project is a Streamlit-based web application designed to assist users in navigating and understanding the Langchain documentation using an AI-powered chatbot.
+An intelligent Streamlit-based assistant that helps developers navigate and understand the Langchain documentation through an AI-powered chatbot interface.
 
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Python](https://img.shields.io/badge/python-3.12-blue.svg)
+![Streamlit](https://img.shields.io/badge/streamlit-latest-red.svg)
 
-[Watch the Demo Video](./demo.webm)
+[Live Demo](https://langchain-docs-chatbot.billycychan.com/) | [Watch Demo Video](./demo.webm)
 
-Live: https://langchain-docs-chatbot.billycychan.com/
+## 🌟 Features
 
-## Features
+- **AI-Powered Documentation Assistant**: Leverages the Langchain framework to provide contextually relevant responses to documentation queries
+- **Interactive Chat Interface**: Clean, user-friendly Streamlit interface for natural conversation flow
+- **Source Attribution**: Transparent source tracking for all retrieved information
+- **User Profiles**: Customizable sidebar displaying user information and social links
+- **Docker Support**: Containerized deployment for consistent development and production environments
+- **Performance Monitoring**: Integration with Langsmith for request tracking and analysis
 
-- **AI-Powered Chatbot**: Utilizes the Langchain framework to provide intelligent responses to user queries about the Langchain documentation.
-- **User Profile Sidebar**: Displays user information and links to social profiles.
-- **Source Tracking**: Provides sources for the information retrieved by the AI.
-
-## Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 
 - Python 3.12
-- Pipenv for managing dependencies
+- Docker and Docker Compose (optional)
+- Pipenv for dependency management
+- Ollama installed locally
 
 ### Installation
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/billycychan/langchain-doc-chatbot
-   cd langchain-doc-chatbot
-   ```
+#### 1. Set Up Ollama
+```bash
+# Install and pull the required model
+ollama pull llama3.2:1b
+```
 
-2. **Set up environment variables**:
-   - Create a `.env` and `.env.docker` files in the root directory.
-   - Add the following environment variables to both `.env` file:
+#### 2. Clone and Setup
+```bash
+# Clone the repository
+git clone https://github.com/billycychan/langchain-doc-chatbot
+cd langchain-doc-chatbot
 
-     ```plaintext
-     OPENAI_API_KEY=your_openai_api_key
-     PINECONE_API_KEY=your_pinecone_api_key
-     LANGCHAIN_TRACING_V2=true
-     LANGCHAIN_ENDPOINT=https://api.smith.langchain.com
-     LANGCHAIN_API_KEY=your_langchain_api_key
-     LANGCHAIN_PROJECT=your_langchain_project
-     OLLAMA_BASE_URL=your_ollama_base_url:11434
-     ```
-3 **Run Docker**
-   - run `docker compose up -d`
-4. **Access the application**:
-   - Open your web browser and go to `http://localhost:8501`.
+# Install dependencies using Pipenv
+pipenv install
+```
 
-## Usage
+#### 3. Configure Environment
+Create `.env` and `.env.docker` files in the project root with the following variables:
 
-- Enter your query in the prompt input field.
-- The AI will generate a response based on the Langchain documentation.
-- View the response and its sources in the chat interface.
+```plaintext
+OPENAI_API_KEY=your_openai_api_key
+PINECONE_API_KEY=your_pinecone_api_key
+LANGCHAIN_TRACING_V2=true
+LANGCHAIN_ENDPOINT=https://api.smith.langchain.com
+LANGCHAIN_API_KEY=your_langchain_api_key
+LANGCHAIN_PROJECT=your_langchain_project
+OLLAMA_BASE_URL=your_ollama_base_url:11434
+```
 
-## Technologies and Frameworks
+#### 4. Launch Application
 
-This project leverages several cutting-edge technologies and frameworks to deliver a robust and efficient AI-powered documentation helper:
+Using Docker:
+```bash
+docker compose up -d
+```
 
-1. **Langchain**: Utilized to build a Retrieval-Augmented Generation (RAG) application. Langchain provides the necessary tools to integrate language models and retrieval systems, enabling the application to generate accurate and contextually relevant responses.
+Or locally:
+```bash
+pipenv run streamlit run main.py
+```
 
-2. **Langsmith**: Employed to keep track of each request made to the application. Langsmith offers tracing and monitoring capabilities, ensuring that each interaction is logged and can be analyzed for performance and accuracy.
+Access the application at `http://localhost:8501`
 
-3. **Pinecone**: Used as a vector database to store and retrieve document embeddings. Pinecone's high-performance vector search capabilities allow the application to efficiently find and retrieve relevant documents based on user queries.
+## 🛠 Technology Stack
 
-4. **Streamlit**: The framework used to build the frontend of the application. Streamlit provides an interactive and user-friendly interface, making it easy for users to input queries and view responses in real-time.
+### Core Components
+- **Langchain**: Powers the Retrieval-Augmented Generation (RAG) system
+- **Langsmith**: Provides request tracing and performance monitoring
+- **Pinecone**: Vector database for efficient document embedding storage
+- **Streamlit**: Powers the interactive web interface
+- **Ollama**: Local model serving for AI capabilities
 
-These technologies work together to create a seamless experience for users seeking information from the Langchain documentation.
+## 📁 Project Structure
 
-## Project Structure
+```
+langchain-doc-chatbot/
+├── backend/
+│   └── core.py          # Core Langchain integration logic
+├── main.py              # Streamlit application entry point
+├── Dockerfile           # Container configuration
+├── docker-compose.yml   # Multi-container setup
+├── Pipfile             # Python dependencies
+└── README.md           # Project documentation
+```
 
-- `backend/core.py`: Contains the core logic for interacting with the Langchain framework.
-- `main.py`: The main entry point for the Streamlit application.
-- `Pipfile`: Lists the project dependencies.
+## 📬 Contact
 
+Billy Chan - chanc187@mcmaster.ca
 
-## Contributing
+Project Link: [https://github.com/billycychan/langchain-doc-chatbot](https://github.com/billycychan/langchain-doc-chatbot)
 
-Contributions are welcome! Please fork the repository and submit a pull request for any improvements or bug fixes.
+## 📄 License
 
-## Contact
-
-For any questions or feedback, please contact Billy Chan at {chanc187} at mcmaster.ca]
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
