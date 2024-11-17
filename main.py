@@ -8,64 +8,6 @@ st.set_page_config(
     page_title="AI Langchain Documentation Helper", page_icon="💻", layout="centered"
 )
 
-# Custom CSS for dark mode
-st.markdown(
-    """
-<style>
-    .stApp {
-        background-color: #121212;
-        color: #FFFFFF;
-    }
-    
-    /* Header styling */
-    h1, h2, h3 {
-        color: #FFFFFF;
-    }
-    
-    /* Button styling */
-    .stButton button {
-        background-color: #1E88E5;
-        color: #FFFFFF;
-        border-radius: 8px;
-        padding: 10px 20px;
-        border: none;
-    }
-    
-    .stButton button:hover {
-        background-color: #1565C0;
-    }
-    
-    /* Text input styling */
-    .stTextInput input {
-        background-color: #1E1E1E;
-        color: #FFFFFF;
-        border: 1px solid #333333;
-        border-radius: 8px;
-        padding: 10px;
-    }
-    
-    /* Sidebar styling */
-    section[data-testid="stSidebar"] {
-        background-color: #1E1E1E;
-        color: #FFFFFF;
-    }
-    
-    /* Divider styling */
-    hr {
-        border-color: #333333;
-    }
-    
-    /* Info box styling */
-    .stAlert {
-        background-color: #1E1E1E;
-        border: 1px solid #333333;
-        color: #FFFFFF;
-    }
-</style>
-""",
-    unsafe_allow_html=True,
-)
-
 # Add sidebar with user information
 with st.sidebar:
     st.title("👤 User Profile")
